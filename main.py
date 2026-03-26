@@ -11,6 +11,7 @@ import os
 import builtins
 from traceback import print_exc
 from sys import exit
+import gc
 
 def main():
 
@@ -42,18 +43,21 @@ def main():
 
         print("Selected folder:", folder)
 
+        # Screen the folder for .ims files
         ims_files = sorted(folder.glob("*.ims"))
 
         if len(ims_files) != 0:
+            # If there are .ims files in the folder, accept the chosen folder and exit the loop
             are_there_ims_files = True
         else:
+            # If there are no .ims files in the folder, decline the chosen folder and reset the loop
             print("No .ims files found in this folder.", flush=True)
             print("Choose another folder.")
             print()
-        
+    
+    # Get the number of .ims files in the folder
     n_files = len(ims_files)
     print(f"Found {n_files} .ims files.")
-
 
     # --------------------------------------------------------------
     # Create new folder for the Maximum intensity projections
@@ -68,19 +72,20 @@ def main():
         print(f"\nProcessing file {i}/{n_files}:")
         print(f"{file.name}")
 
-        # Open the file as a zarr in read mode
         try:
 
             with builtins.open(os.devnull, "w") as f, redirect_stdout(f):
+
+                # Open the file as a zarr in read mode
                 store = ims(file, aszarr=True)
                 zarr_array = open(store, mode="r")
 
-                # Get the shape of the tiled image
+                # Get the shape of the image
                 T, C, Z, Y, X = zarr_array.shape
 
                 # Perform the maximum intensity projection
-                # This method opens each slice one at a time and compares it with the previous
-                # The final slice corresponds to the maximum intensity projection
+                # This method opens each slice one at a time and stores the maximum value for each individual pixel
+                # The final slice in memory thus corresponds to the maximum intensity projection
                 max_int_proj = None
                 for z in range(Z):
 
@@ -90,7 +95,7 @@ def main():
                         max_int_proj = slice_z.copy()
 
                     else:
-                        max_int_proj = maximum(max_int_proj, slice_z)
+                        max_int_proj = maximum(max_int_proj, slice_z, out=max_int_proj)
 
                 # Compute the OME-TIFF file name
                 output_file = new_folder / f"{file.stem}_max_int_proj.ome.tiff"
@@ -109,24 +114,37 @@ def main():
             if T == 1:
                 if C == 1:
                     axes = 'YX'
+                    max_int_proj = max_int_proj[0,0,:,:].copy()
                 else:
                     axes = 'CYX'
+                    max_int_proj = max_int_proj[0,:,:,:].copy()
 
             else:
                 if C == 1:
                     axes = 'TYX'
+                    max_int_proj = max_int_proj[:,0,:,:].copy()
                 else:
                     axes = 'TCYX'
+                    # No change in shape
+
+            gc.collect()
             
             # Save the file
             imwrite(
                     output_file,
-                    squeeze(max_int_proj),
+                    max_int_proj,
                     ome=True,
                     bigtiff=True,
                     photometric="minisblack",
-                    metadata={'axes': axes}
+                    metadata={'axes': axes},
+                    compression="zlib",
+                    compressionargs={"level": 6},
+                    tile=(256, 256)
                     )
+
+            # Delete the data in memory before closing
+            del max_int_proj
+            gc.collect()
                 
             print(f"file {i}/{n_files} finished.")
 

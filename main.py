@@ -73,6 +73,7 @@ def main():
     # Print my name:
     print("Maximum Intensity Projection of .ims files")
     print("Author: Simão Peniche Seixas")
+    print("simao.seixas@i3s.up.pt")
     print("simao.peniche.seixas@gmail.com")
     print("i3S - Institute for Research and Innovation in Health")
     print()
@@ -291,6 +292,11 @@ def main():
 
         if failed_files:
             f.write("=== FAILED FILES ===\n\n")
+
+            for name, stage, error in failed_files:
+                f.write(f"{name}\n")
+
+            f.write("\n--------------------------------------\n\n")
 
             for name, stage, error in failed_files:
                 f.write(f"File:  {name}\n")

@@ -96,8 +96,6 @@ Example:
 ## Author
 
 **Simão Peniche Seixas**
-
-**Email:** simao.seixas@i3s.up.pt  
-**Email:** simao.peniche.seixas@gmail.com  
-
-**Institution:** i3S - Institute for Research and Innovation in Health
+simao.seixas@i3s.up.pt  
+simao.peniche.seixas@gmail.com  
+i3S - Institute for Research and Innovation in Health

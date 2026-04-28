@@ -8,9 +8,11 @@ This approach ensures that large `.ims` files can be processed on computers with
 
 If, for any reason, the program cannot process a specific file, its name and error will be saved in the generated report, and the program will continue processing the remaining files.
 
+A standalone executable that runs this program is also available as a Release.
+
 ---
 
-## Building the executable/Running the code
+## Running the code
 
 You will need a Python installation.
 

@@ -33,7 +33,7 @@ To directly run the code:
 ```bat
 setup_venv.bat
 .venv\Scripts\activate
-main.py
+python main.py
 ```
   
 ---
@@ -51,7 +51,7 @@ To directly run the code:
 ```sh
 ./setup_venv.sh
 source .venv/bin/activate
-main.py
+python main.py
 ```
 
 ---

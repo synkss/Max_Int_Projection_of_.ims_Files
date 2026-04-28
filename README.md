@@ -51,8 +51,6 @@ To directly run the code:
 
 1. Run the executable/code:
 
-        Max. Int. Projection of ims data.exe
-
 2. Wait for the program to open
 
 3. Select the folder containing the `.ims` files.

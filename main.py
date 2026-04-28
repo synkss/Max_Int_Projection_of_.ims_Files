@@ -62,7 +62,6 @@ def get_pixel_size(file):
 
 def main():
 
-    # Print my name:
     print("Maximum Intensity Projection of .ims Files")
     print("----------------------------------------------")
     print()

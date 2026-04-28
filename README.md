@@ -10,35 +10,6 @@ If, for any reason, the program cannot process a specific file, its name and err
 
 ---
 
-## Program usage
-
-1. Run the executable/code:
-
-2. Wait for the program to open
-
-3. Select the folder containing the `.ims` files.
-
-4. Wait while the program automatically:
-
-   - Processes all `.ims` files.
-   - Saves the maximum intensity projections.
-   - Generates the `report.txt` file.
-
----
-
-## Output
-
-The generated projections and the `report.txt` file will be saved in:
-
-        <selected folder>/maximum intensity projections/
-
-Example:
-
-        C:/Users/YourName/Desktop/IMS files/maximum intensity projections/
-
-
----
-
 ## Building the executable/Running the code
 
 You will need a Python installation.
@@ -76,6 +47,34 @@ To directly run the code:
 source .venv/bin/activate
 python main.py
 ```
+
+---
+
+## Program usage
+
+1. Run the executable/code:
+
+2. Wait for the program to open
+
+3. Select the folder containing the `.ims` files.
+
+4. Wait while the program automatically:
+
+   - Processes all `.ims` files.
+   - Saves the maximum intensity projections.
+   - Generates the `report.txt` file.
+
+---
+
+## Output
+
+The generated projections and the `report.txt` file will be saved in:
+
+        <selected folder>/maximum intensity projections/
+
+Example:
+
+        C:/Users/YourName/Desktop/IMS files/maximum intensity projections/
 
 ---
 

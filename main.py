@@ -155,7 +155,7 @@ def main():
                 T, C, Z, Y, X = zarr_array.shape
 
                 # Perform the maximum intensity projection
-                # This method opens each slice one at a time as an array with dimensions TCYX and stores the maximum value for each individual pixel
+                # Load one Z slice at a time (T,C,Y,X) and update the max. int. projection
                 # The final slice array in memory thus corresponds to the maximum intensity projection
                 max_int_proj = None
                 slice_z = None
@@ -324,11 +324,8 @@ def main():
     # Exhibit a final message on the console
     if failed_files:
 
-        # If there was only one file
         if n_files == 1:
             print("The file could not be processed.")
-
-        # If there was more than one file
         else:
             if len(failed_files) == 1:
                 print(f"All {n_files} files were processed, with 1 failed file.")

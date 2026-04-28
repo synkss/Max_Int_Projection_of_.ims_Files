@@ -16,14 +16,6 @@ You will need a Python installation.
 
 **Windows:**
 
-To build the executable:
-```bat
-setup_venv.bat
-.venv\Scripts\activate
-build_exe.bat
-```
-
-To directly run the code:
 ```bat
 setup_venv.bat
 .venv\Scripts\activate
@@ -34,14 +26,6 @@ python main.py
 
 **macOS/Linux:**
 
-To build the executable:
-```sh
-./install.sh
-source .venv/bin/activate
-build.exe_sh
-```
-
-To directly run the code:
 ```sh
 ./setup_venv.sh
 source .venv/bin/activate

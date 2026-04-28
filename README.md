@@ -16,15 +16,48 @@ If, for any reason, the program cannot process a specific file, its name and err
 
 ---
 
-## Usage
+## Building the executable/Running the code
 
-1. Run the executable:
+You will need a Python installation.
+
+**In Windows:**
+
+To build the executable:
+- Build the virtual environment by double-clicking `setup_venv.bat`
+- Build the executable by double-clicking `build_exe.bat`
+- Wait for the executable to be built automatically.
+- Double-click the executable.
+
+To directly run the code:
+- Build the virtual environment double-clicking `setup_venv.bat`
+- Run the code using the virtual environment.
+
+
+**In macOS:**
+
+To build the executable:
+- Build the virtual environment by double-clicking `setup_venv.sh`
+- Build the application by double-clicking `build_app.sh`
+- Wait for the app to be built automatically.
+- Double-click the app.
+
+To directly run the code:
+- Build the virtual environment double-clicking `setup_venv.bat`
+- Run the code using the virtual environment.
+
+---
+
+## Program usage
+
+1. Run the executable/code:
 
         Max. Int. Projection of ims data.exe
 
-2. Select the folder containing the `.ims` files.
+2. Wait for the program to open
 
-3. Wait while the program automatically:
+3. Select the folder containing the `.ims` files.
+
+4. Wait while the program automatically:
 
    - Processes all `.ims` files.
    - Saves the maximum intensity projections.

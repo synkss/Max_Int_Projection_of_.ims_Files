@@ -20,30 +20,39 @@ If, for any reason, the program cannot process a specific file, its name and err
 
 You will need a Python installation.
 
-**In Windows:**
+**Windows:**
 
 To build the executable:
-- Build the virtual environment by double-clicking `setup_venv.bat`
-- Build the executable by double-clicking `build_exe.bat`
-- Wait for the executable to be built automatically.
-- Double-click the executable.
+```bat
+setup_venv.bat
+.venv\Scripts\activate
+build_exe.bat
+```
 
 To directly run the code:
-- Build the virtual environment double-clicking `setup_venv.bat`
-- Run the code using the virtual environment.
+```bat
+setup_venv.bat
+.venv\Scripts\activate
+main.py
+```
+  
+---
 
-
-**In macOS:**
+**macOS/Linux:**
 
 To build the executable:
-- Build the virtual environment by double-clicking `setup_venv.sh`
-- Build the application by double-clicking `build_app.sh`
-- Wait for the app to be built automatically.
-- Double-click the app.
+```sh
+./install.sh
+source .venv/bin/activate
+build.exe_sh
+```
 
 To directly run the code:
-- Build the virtual environment double-clicking `setup_venv.bat`
-- Run the code using the virtual environment.
+```sh
+./setup_venv.sh
+source .venv/bin/activate
+main.py
+```
 
 ---
 

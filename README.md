@@ -24,7 +24,6 @@ setup_venv.bat
 python main.py
 ```
   
----
 
 **macOS/Linux:**
 
@@ -38,9 +37,9 @@ python main.py
 
 ## Program usage
 
-1. Run the executable/code:
+1. Run the executable/code.
 
-2. Wait for the program to open
+2. Wait for the program to open.
 
 3. Select the folder containing the `.ims` files.
 

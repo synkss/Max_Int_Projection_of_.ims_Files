@@ -55,11 +55,11 @@ python main.py
 
 The generated projections and the `report.txt` file will be saved in:
 
-        <selected folder>/maximum intensity projections/
+    <selected folder>/maximum intensity projections/
 
 Example:
 
-        C:/Users/YourName/Desktop/IMS files/maximum intensity projections/
+    C:/Users/YourName/Desktop/IMS files/maximum intensity projections/
 
 ---
 
